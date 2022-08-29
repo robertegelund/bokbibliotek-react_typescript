@@ -2,7 +2,7 @@ import React, {useRef} from "react"
 import { IoMdTrash } from "react-icons/io"
 import "./MyLibrary.css"
 
-const MyLibrary = (props) => {
+const MyLibrary: React.FC = (props) => {
     const libraryBookOverlay = useRef()
 
     const showOverlay = () => {

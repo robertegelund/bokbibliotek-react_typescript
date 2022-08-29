@@ -7,7 +7,7 @@ import knausbooks from "../data/knausbooks"
 import bookCovers from "../data/book-covers"
 import "./BookDataAndSearch.css"
 
-const BookDataAndSearch = () => {
+const BookDataAndSearch: React.FC = () => {
     const [books, setBooks] = useState(knausbooks)
     const [libraryBooks, setLibraryBooks] = useState([])
     const [isLibraryEmpty, setIsLibraryEmpty] = useState(true)

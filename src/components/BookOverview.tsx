@@ -3,7 +3,7 @@ import { IoIosAddCircle } from "react-icons/io"
 import "./BookOverview.css"
 
 
-const BookOverview = (props) => {
+const BookOverview: React.FC = (props) => {
     const coverOverlay = useRef()
     const addedOverlay = useRef()
 
