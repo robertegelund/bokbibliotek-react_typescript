@@ -1,0 +1,39 @@
+.navigation {
+    width: 100vw;
+    display: flex;
+    justify-content: flex-end;
+    padding: 2rem 5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.bookicon {
+    height: 2.6rem;
+    width: 2.6rem;
+    margin-right: 1rem;
+}
+
+.bookcount {
+    height: 1.8rem;
+    width: 1.8rem;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    top: 1.5rem;
+    right: 17.5rem;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.mylibrary {
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+}
+
+.bookicon, .mylibrary {
+    color: white;
+    cursor: pointer;
+}
