@@ -15,13 +15,15 @@ const BookDataAndSearch: React.FC = () => {
     const [books, setBooks] = useState<BookData[]>(knausbooks)
     const [libraryBooks, setLibraryBooks] = useState<BookData[]>([])
     const [isLibraryEmpty, setIsLibraryEmpty] = useState<boolean>(true)
+    const [searchString, setSearchString] = useState<string>("")
     
     const mySearchSection = useRef<HTMLDivElement>(null)
     const librarycontainer = useRef<HTMLDivElement>(null)
 
     const bookSearch = (e:FormEvent<HTMLInputElement>) => {
+        setSearchString((e.target as HTMLInputElement).value.toLowerCase())
         setBooks(
-            knausbooks.filter(knausbook => knausbook.title.toLowerCase().includes((e.target as HTMLInputElement).value.toLowerCase())
+            knausbooks.filter(knausbook => knausbook.title.toLowerCase().includes(searchString)
         ))
     }
     
@@ -48,8 +50,10 @@ const BookDataAndSearch: React.FC = () => {
         }
     }
     
-    const addToLibrary = (i:number):void => { setLibraryBooks( prev => [...prev, books[i] ] ); setIsLibraryEmpty(false);
-    console.log(libraryBooks.length) }
+    const addToLibrary = (i:number):void => { 
+        setLibraryBooks( prev => [...prev, books[i] ] ); 
+        setIsLibraryEmpty(false); 
+    }
 
     const removeFromLibrary = (i:number):void => {
         const libraryCopy = [...libraryBooks]
@@ -70,7 +74,7 @@ const BookDataAndSearch: React.FC = () => {
             <div className="bookoverview">
                 <div className="searchsection" ref={mySearchSection}>
                     <IoIosSearch className="searchicon"/>
-                    <input className="booksearch" type="text" placeholder="Søk på bok" onInput={bookSearch} onMouseEnter={growSearch} onMouseLeave={shrinkSearch}/> 
+                    <input className="booksearch" type="text" placeholder="Søk på bok" onChange={bookSearch} onMouseEnter={growSearch} onMouseLeave={shrinkSearch}/> 
                 </div>                 
                     
                 <div className="bookcontainer">
