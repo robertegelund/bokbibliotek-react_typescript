@@ -71,11 +71,13 @@ const BookDataAndSearch: React.FC = () => {
 
     return(
         <>
+        
             <div className="bookoverview">
-                <div className="searchsection" ref={mySearchSection}>
+                <nav className="searchsection" ref={mySearchSection}>
                     <IoIosSearch className="searchicon"/>
-                    <input className="booksearch" type="text" placeholder="Søk på bok" onChange={bookSearch} onMouseEnter={growSearch} onMouseLeave={shrinkSearch}/> 
-                </div>                 
+                    <input className="booksearch" type="text" placeholder="Søk på bok" onChange={bookSearch} onMouseEnter={growSearch} onMouseLeave={shrinkSearch}/>
+                    <Navigation showLibrary={showLibrary} bookCount={libraryBooks.length} />
+                </nav>                 
                     
                 <div className="bookcontainer">
                     {
@@ -97,7 +99,7 @@ const BookDataAndSearch: React.FC = () => {
                     )}
                 </div>
 
-            <Navigation showLibrary={showLibrary} bookCount={libraryBooks.length} />
+            
         </>
     )}
 

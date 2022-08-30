@@ -1,6 +1,6 @@
 .knausgaard {
-    height: 120vh;
+    height: 100vh;
     position: relative;
-    filter: opacity(0.6);
+    filter: opacity(0.8);
     z-index: -99;
 }

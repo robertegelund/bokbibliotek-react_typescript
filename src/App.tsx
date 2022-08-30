@@ -10,6 +10,7 @@ const App: React.FC = () => {
       <Background />
       <BookDataAndSearch />
     </div>
+    
   )
 }
 

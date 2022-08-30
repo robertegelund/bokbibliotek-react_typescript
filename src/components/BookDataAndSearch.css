@@ -1,7 +1,6 @@
 .searchsection {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
     border: 1px solid white;
     border-radius: 0.2rem;
     margin-bottom: 2rem;

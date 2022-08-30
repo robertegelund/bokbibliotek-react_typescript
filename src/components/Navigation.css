@@ -1,11 +1,7 @@
 .navigation {
-    width: 100vw;
     display: flex;
     justify-content: flex-end;
     padding: 2rem 5rem;
-    position: absolute;
-    top: 0;
-    left: 0;
 }
 
 .bookicon {
@@ -21,7 +17,6 @@
     border-radius: 50%;
     position: absolute;
     top: 1.5rem;
-    right: 17.5rem;
     text-align: center;
     font-size: 1.3rem;
     font-weight: 700;
