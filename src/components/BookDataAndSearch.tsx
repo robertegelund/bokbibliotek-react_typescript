@@ -8,29 +8,50 @@ import bookCovers from "../data/book-covers"
 import "./BookDataAndSearch.css"
 
 const BookDataAndSearch: React.FC = () => {
-    const [books, setBooks] = useState(knausbooks)
-    const [libraryBooks, setLibraryBooks] = useState([])
-    const [isLibraryEmpty, setIsLibraryEmpty] = useState(true)
-    
-    const mySearchSection = useRef()
-    const librarycontainer = useRef()
+    interface BookData {
+        title: string, cover: string, published:string, description:string
+    }
 
-    const bookSearch = (e) => {
+    const [books, setBooks] = useState<BookData[]>(knausbooks)
+    const [libraryBooks, setLibraryBooks] = useState<BookData[]>([])
+    const [isLibraryEmpty, setIsLibraryEmpty] = useState<boolean>(true)
+    
+    const mySearchSection = useRef<HTMLDivElement>(null)
+    const librarycontainer = useRef<HTMLDivElement>(null)
+
+    const bookSearch = (e:Event) => {
         setBooks(
             knausbooks.filter(knausbook => knausbook.title.toLowerCase().includes(e.target.value.toLowerCase())
         ))
     }
     
-    const growSearch = () => mySearchSection.current.style.width = "28rem"
-    const shrinkSearch = () => mySearchSection.current.style.width = "8.5rem"
+    const growSearch = () => {
+        if(mySearchSection != null) {
+            mySearchSection.current!.style.width = "28rem"
+        }
+    }
+    const shrinkSearch = () => {
+        if(mySearchSection != null) {
+            mySearchSection.current!.style.width = "8.5rem"
+        }
+    }
     
-    const showLibrary = () =>librarycontainer.current.style.animation = "comeDown 1s forwards"
-    const hideLibrary = () => librarycontainer.current.style.animation = "getUp 1s forwards"
+    const showLibrary = () => {
+        if(librarycontainer != null) {
+            librarycontainer.current!.style.animation = "comeDown 1s forwards"
+        }
+    }
+
+    const hideLibrary = () => {
+        if(librarycontainer != null) {
+            librarycontainer.current!.style.animation = "getUp 1s forwards"
+        }
+    }
     
-    const addToLibrary = (i) => { setLibraryBooks( prev => [...prev, books[i] ] ); setIsLibraryEmpty(false);
+    const addToLibrary = (i:number) => { setLibraryBooks( prev => [...prev, books[i] ] ); setIsLibraryEmpty(false);
     console.log(libraryBooks.length) }
 
-    const removeFromLibrary = (i) => {
+    const removeFromLibrary = (i:number) => {
         const libraryCopy = [...libraryBooks]
         libraryCopy.splice(i, 1)
         setLibraryBooks(libraryCopy)
