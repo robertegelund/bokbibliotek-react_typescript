@@ -3,8 +3,8 @@ import { IoIosBook } from "react-icons/io"
 import "./Navigation.css"
 
 interface Props {
-    bookCount: number,
-    showLibrary: () => void
+    bookCount?: number,
+    showLibrary?: () => void
 }
     
 
