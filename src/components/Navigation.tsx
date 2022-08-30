@@ -2,7 +2,13 @@ import React from "react"
 import { IoIosBook } from "react-icons/io"
 import "./Navigation.css"
 
-const Navigation = (props) => {
+interface Props {
+    bookCount: number,
+    showLibrary: () => void
+}
+    
+
+const Navigation: React.FC<Props> = (props) => {
     return(
         <nav className="navigation">
             <div className="mylibrary" onClick={props.showLibrary}>

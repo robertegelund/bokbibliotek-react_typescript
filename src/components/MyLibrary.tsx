@@ -2,14 +2,25 @@ import React, {useRef} from "react"
 import { IoMdTrash } from "react-icons/io"
 import "./MyLibrary.css"
 
-const MyLibrary: React.FC = (props) => {
-    const libraryBookOverlay = useRef()
+interface Props {
+    cover:string, 
+    removeFromLibrary:(i:number) => void,
+    number:number,
+    title:string
+}
+
+const MyLibrary: React.FC<Props> = (props) => {
+    const libraryBookOverlay = useRef<HTMLDivElement>(null)
 
     const showOverlay = () => {
-        libraryBookOverlay.current.style.visibility = "visible"
+        if(libraryBookOverlay != null) {
+            libraryBookOverlay.current!.style.visibility = "visible"
+        }
     }
     const hideOverlay = () => {
-        libraryBookOverlay.current.style.visibility = "hidden" 
+        if(libraryBookOverlay != null) {
+            libraryBookOverlay.current!.style.visibility = "hidden" 
+        }
     }
     
     return(

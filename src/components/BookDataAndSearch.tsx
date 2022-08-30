@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react'
+import React, {useState, useRef, FormEvent} from 'react'
 import { IoIosSearch, IoMdCloseCircle } from "react-icons/io"
 import BookOverview from "./BookOverview"
 import MyLibrary from "./MyLibrary"
@@ -19,39 +19,39 @@ const BookDataAndSearch: React.FC = () => {
     const mySearchSection = useRef<HTMLDivElement>(null)
     const librarycontainer = useRef<HTMLDivElement>(null)
 
-    const bookSearch = (e:Event) => {
+    const bookSearch = (e:FormEvent<HTMLInputElement>) => {
         setBooks(
-            knausbooks.filter(knausbook => knausbook.title.toLowerCase().includes(e.target.value.toLowerCase())
+            knausbooks.filter(knausbook => knausbook.title.toLowerCase().includes((e.target as HTMLInputElement).value.toLowerCase())
         ))
     }
     
-    const growSearch = () => {
+    const growSearch = ():void => {
         if(mySearchSection != null) {
             mySearchSection.current!.style.width = "28rem"
         }
     }
-    const shrinkSearch = () => {
+    const shrinkSearch = ():void => {
         if(mySearchSection != null) {
             mySearchSection.current!.style.width = "8.5rem"
         }
     }
     
-    const showLibrary = () => {
+    const showLibrary = ():void => {
         if(librarycontainer != null) {
             librarycontainer.current!.style.animation = "comeDown 1s forwards"
         }
     }
 
-    const hideLibrary = () => {
+    const hideLibrary = ():void => {
         if(librarycontainer != null) {
             librarycontainer.current!.style.animation = "getUp 1s forwards"
         }
     }
     
-    const addToLibrary = (i:number) => { setLibraryBooks( prev => [...prev, books[i] ] ); setIsLibraryEmpty(false);
+    const addToLibrary = (i:number):void => { setLibraryBooks( prev => [...prev, books[i] ] ); setIsLibraryEmpty(false);
     console.log(libraryBooks.length) }
 
-    const removeFromLibrary = (i:number) => {
+    const removeFromLibrary = (i:number):void => {
         const libraryCopy = [...libraryBooks]
         libraryCopy.splice(i, 1)
         setLibraryBooks(libraryCopy)
@@ -89,7 +89,7 @@ const BookDataAndSearch: React.FC = () => {
 
                     {
                         libraryBooks.map( (libraryBook, i) =>
-                            <MyLibrary key={i} number={i} cover={bookCovers[i]} published={libraryBook.published} title={libraryBook.title} removeFromLibrary={removeFromLibrary} />
+                            <MyLibrary key={i} number={i} cover={bookCovers[i]} title={libraryBook.title} removeFromLibrary={removeFromLibrary} />
                     )}
                 </div>
 
