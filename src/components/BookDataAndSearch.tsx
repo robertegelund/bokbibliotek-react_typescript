@@ -4,7 +4,6 @@ import BookOverview from "./BookOverview"
 import MyLibrary from "./MyLibrary"
 import Navigation from "./Navigation"
 import knausbooks from "../data/knausbooks"
-import bookCovers from "../data/book-covers"
 import "./BookDataAndSearch.css"
 
 const BookDataAndSearch: React.FC = () => {
@@ -72,7 +71,7 @@ const BookDataAndSearch: React.FC = () => {
                 <div className="bookcontainer">
                     {
                         books.map( (book, i) => 
-                            <BookOverview key={i} number={i} cover={bookCovers[i]} published={book.published} title={book.title} addToLibrary={addToLibrary} />
+                            <BookOverview key={i} number={i} cover={book.cover} published={book.published} title={book.title} addToLibrary={addToLibrary} />
                     )}
                 </div>  
             </div>
@@ -85,7 +84,7 @@ const BookDataAndSearch: React.FC = () => {
 
                     {
                         libraryBooks.map( (libraryBook, i) =>
-                            <MyLibrary key={i} number={i} cover={bookCovers[i]} title={libraryBook.title} removeFromLibrary={removeFromLibrary} />
+                            <MyLibrary key={i} number={i} cover={libraryBook.cover} title={libraryBook.title} removeFromLibrary={removeFromLibrary} />
                     )}
                 </div>
 
