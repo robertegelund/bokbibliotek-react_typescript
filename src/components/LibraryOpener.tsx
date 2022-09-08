@@ -1,6 +1,6 @@
 import React from "react"
 import { IoIosBook } from "react-icons/io"
-import "./Navigation.css"
+import "./LibraryOpener.css"
 
 interface Props {
     bookCount?: number,
@@ -8,9 +8,9 @@ interface Props {
 }
     
 
-const Navigation: React.FC<Props> = (props) => {
+const LibraryOpener: React.FC<Props> = (props) => {
     return(
-        <nav className="navigation">
+        <nav className="library-opener">
             <div className="mylibrary" onClick={props.showLibrary}>
                 <IoIosBook className="bookicon"/>
                 <div className="bookcount">{props.bookCount}</div>
@@ -20,4 +20,4 @@ const Navigation: React.FC<Props> = (props) => {
     )
 }
 
-export default Navigation
+export default LibraryOpener

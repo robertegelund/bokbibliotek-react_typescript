@@ -2,7 +2,7 @@ import React, {useState, useRef, FormEvent} from 'react'
 import { IoIosSearch, IoMdCloseCircle } from "react-icons/io"
 import BookOverview from "./BookOverview"
 import MyLibrary from "./MyLibrary"
-import Navigation from "./Navigation"
+import LibraryOpener from "./LibraryOpener"
 import knausbooks from "../data/knausbooks"
 import "./BookDataAndSearch.css"
 
@@ -61,7 +61,7 @@ const BookDataAndSearch: React.FC = () => {
         <>
             <div className="bookoverview">
                 <nav className="searchsection" ref={mySearchSection}>
-                    <Navigation showLibrary={showLibrary} bookCount={libraryBooks.length} />
+                    <LibraryOpener showLibrary={showLibrary} bookCount={libraryBooks.length} />
                     <div className="searchbar">
                         <IoIosSearch className="searchicon"/>
                         <input className="booksearch" type="text" placeholder="Søk på bok" onChange={bookSearch} />
