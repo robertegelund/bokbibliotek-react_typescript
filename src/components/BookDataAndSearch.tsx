@@ -27,17 +27,6 @@ const BookDataAndSearch: React.FC = () => {
         ))
     }
     
-    const growSearch = ():void => {
-        if(mySearchSection != null) {
-            mySearchSection.current!.style.width = "28rem"
-        }
-    }
-    const shrinkSearch = ():void => {
-        if(mySearchSection != null) {
-            mySearchSection.current!.style.width = "8.5rem"
-        }
-    }
-    
     const showLibrary = ():void => {
         if(librarycontainer != null) {
             librarycontainer.current!.style.animation = "comeDown 1s forwards"
@@ -51,7 +40,7 @@ const BookDataAndSearch: React.FC = () => {
     }
     
     const addToLibrary = (i:number):void => { 
-        setLibraryBooks( prev => [...prev, books[i] ] ); 
+        setLibraryBooks( prev => [...prev, books[i] ] );
         setIsLibraryEmpty(false); 
     }
 
@@ -64,19 +53,20 @@ const BookDataAndSearch: React.FC = () => {
 
     let statusMessage;
     if(isLibraryEmpty) {
-        statusMessage = <p style={{color: "white", fontSize: "3rem"}}>Ditt bibliotek er tomt</p>;
+        statusMessage = <p style={{color: "white", fontSize: "1.5rem"}}>Ditt bibliotek er tomt</p>;
     } else {
         statusMessage = ""
     }
 
     return(
         <>
-        
             <div className="bookoverview">
                 <nav className="searchsection" ref={mySearchSection}>
-                    <IoIosSearch className="searchicon"/>
-                    <input className="booksearch" type="text" placeholder="Søk på bok" onChange={bookSearch} onMouseEnter={growSearch} onMouseLeave={shrinkSearch}/>
                     <Navigation showLibrary={showLibrary} bookCount={libraryBooks.length} />
+                    <div className="searchbar">
+                        <IoIosSearch className="searchicon"/>
+                        <input className="booksearch" type="text" placeholder="Søk på bok" onChange={bookSearch} />
+                    </div>
                 </nav>                 
                     
                 <div className="bookcontainer">

@@ -2,21 +2,15 @@
     position: relative;
 }
 
-.librarycover {
-    width: 12rem;
-    min-height: 19.3rem;
+.librarycover, .libraryoverlay {
+    width: 10rem; height: 15rem;
 }
 
 .libraryoverlay {
-    width: 12rem;
-    height: 19.3rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute; top: 0;left: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center; align-items: center;
     visibility: hidden;
 }
 

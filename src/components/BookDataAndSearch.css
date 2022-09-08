@@ -1,25 +1,26 @@
 .searchsection {
     display: flex;
+    width: 100%;
     align-items: center;
-    border: 1px solid white;
-    border-radius: 0.2rem;
-    margin-bottom: 2rem;
-    width: 8.5rem;
-    transition: 0.5s;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
 }
 
 .booksearch {
-    width: 100%;
     height: 1.5rem;
     background-color: transparent;
     color: white;
     font-size: 1.4rem;
     margin-left: 1rem;
-    font-size: 1.6rem;
+
     padding: 1rem;
     outline: 0;
     border: none;
     transition: 0.5s;
+}
+
+.searchbar {
+    display: flex;
 }
 
 .booksearch::placeholder {
@@ -43,26 +44,25 @@
 }
 
 .bookcontainer {
-    height: 55vh;
-    max-width: 56vw;
+    width: 50vw; height: 500px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
-    gap: 3rem 6rem;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    gap: 2rem;
     background-color: #777;
     padding: 1.2rem;
     border-radius: 0.2rem;
-    overflow: auto;
+    overflow: scroll;
 }
 
 .librarycontainer {
-    height: 43vh;
-    width: 43vw;
+    height: 350px;
+    width: 40vw;
     position: absolute;
     top: -100vh;
     left: 35vw;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
-    gap: 1rem;
+    gap: 2rem;
     overflow: auto;
     padding: 2rem;
     background-color: black;

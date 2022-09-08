@@ -1,12 +1,6 @@
-.navigation {
-    display: flex;
-    justify-content: flex-end;
-    padding: 2rem 5rem;
-}
-
 .bookicon {
-    height: 2.6rem;
-    width: 2.6rem;
+    height: 3rem;
+    width: 3rem;
     margin-right: 1rem;
 }
 
@@ -16,7 +10,7 @@
     background-color: red;
     border-radius: 50%;
     position: absolute;
-    top: 1.5rem;
+    top: 0; left: 0;
     text-align: center;
     font-size: 1.3rem;
     font-weight: 700;
@@ -25,7 +19,6 @@
 .mylibrary {
     display: flex;
     align-items: center;
-    font-size: 1.6rem;
 }
 
 .bookicon, .mylibrary {
